@@ -18,6 +18,8 @@
 #include "ble/BLEPriorityManager.h"
 #include "coordination/CorridorCoordinator.h"
 #include "rl/RLAgent.h"
+#include <nlohmann/json.hpp>
+using json = nlohmann::json;
 
 #include <iostream>
 #include <iomanip>
@@ -70,8 +72,17 @@ static void setQueues(std::vector<model::Lane>& lanes,
     }
 }
 
-int main() {
-    std::cout << "\n";
+int main(int argc, char* argv[]) {
+
+    if (argc > 1 && std::string(argv[1]) == "--control") {
+        return runControlMode();
+    }
+
+    return runDemoMode();
+}
+
+int rundemo() {
+	    std::cout << "\n";
     std::cout << "   Traffic Intelligence Platform — N-Way Demo\n";
     std::cout << "\n\n";
 
@@ -254,6 +265,47 @@ int main() {
     std::cout << "\n\n";
     std::cout << "   Demo complete. N-way intersections supported.\n";
     std::cout << "\n";
+
+    return 0;
+}
+
+int runControlMode() {
+
+    std::string input;
+    std::getline(std::cin, input);
+
+    json data = json::parse(input);
+
+    int numApproaches = data["num_approaches"];
+    std::vector<int> queues = data["queues"];
+    int priorityLane = data["priority_lane"];
+
+    engine::EngineConfig config;
+    config.alpha = data["config"]["alpha"];
+    config.beta = data["config"]["beta"];
+    config.minGreen = data["config"]["minGreen"];
+    config.maxGreen = data["config"]["maxGreen"];
+
+    auto enginePtr = createNWayIntersection(numApproaches);
+    enginePtr->setConfig(config);
+
+    setQueues(enginePtr->lanes(), queues);
+
+    if (priorityLane >= 0 && priorityLane < enginePtr->lanes().size()) {
+        enginePtr->lanes()[priorityLane].priorityReason =
+            engine::PriorityReason::BLE;
+    }
+
+    // Run ONE decision step
+    enginePtr->tick(0);
+
+    auto phase = enginePtr->currentPhase();
+
+    json result;
+    result["green_phase"] = phase.id;
+    result["green_duration"] = phase.remainingGreen;
+
+    std::cout << result.dump();
 
     return 0;
 }
