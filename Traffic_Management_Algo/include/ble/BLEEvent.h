@@ -1,5 +1,5 @@
 #pragma once
-#include "../model/Direction.hpp"
+#include "../model/Direction.h"
 
 #include <string>
 #include <chrono>

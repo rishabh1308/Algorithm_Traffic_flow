@@ -3,7 +3,7 @@
 /// and adjusts engine parameters (alpha, beta, greenPerVehicle) to
 /// optimize throughput and fairness metrics.
 
-#include "../engine/TrafficEngine.hpp"
+#include "../engine/TrafficEngine.h"
 
 #include <vector>
 #include <cstdint>

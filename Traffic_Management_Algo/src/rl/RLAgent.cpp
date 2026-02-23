@@ -2,7 +2,7 @@
 /// This is a placeholder heuristic. In production, replace computeAction()
 /// with a trained policy network (DQN, PPO, A2C, etc.).
 
-#include "rl/RLAgent.hpp"
+#include "rl/RLAgent.h"
 
 #include <numeric>
 #include <algorithm>

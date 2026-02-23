@@ -1,5 +1,5 @@
 
-#include "coordination/CorridorCoordinator.hpp"
+#include "coordination/CorridorCoordinator.h"
 
 namespace tip::coordination {
 

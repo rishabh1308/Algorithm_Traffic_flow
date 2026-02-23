@@ -1,5 +1,5 @@
 
-#include "ble/BLEPriorityManager.hpp"
+#include "ble/BLEPriorityManager.h"
 #include <algorithm>
 
 namespace tip::ble {

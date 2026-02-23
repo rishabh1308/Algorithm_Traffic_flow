@@ -1,7 +1,7 @@
 #pragma once
-#include "BLEEvent.hpp"
-#include "BLERegistry.hpp"
-#include "../model/Direction.hpp"
+#include "BLEEvent.h"
+#include "BLERegistry.h"
+#include "../model/Direction.h"
 
 #include <chrono>
 #include <unordered_map>

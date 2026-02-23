@@ -1,8 +1,8 @@
 #pragma once
 /// Thread-safe for concurrent reads after construction.
 
-#include "Lane.hpp"
-#include "Geometry.hpp"
+#include "Lane.h"
+#include "Geometry.h"
 
 #include <vector>
 #include <cstdint>
@@ -43,4 +43,4 @@ namespace tip::model {
         std::vector<LaneMask> mask_;
     };
 
-} -
+};

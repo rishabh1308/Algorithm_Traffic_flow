@@ -8,9 +8,9 @@
 /// Example 6-way: A0A3-through, A0A3-left, A1A4-through, A1A4-left, A2A5-through, A2A5-left (6 phases)
 /// Example 3-way: A0-through, A0-left, A1-through, A1-left, A2-through, A2-left (up to 6 phases)
 
-#include "../model/Lane.hpp"
-#include "../model/Phase.hpp"
-#include "../model/ConflictMatrix.hpp"
+#include "../model/Lane.h"
+#include "../model/Phase.h"
+#include "../model/ConflictMatrix.h"
 
 #include <vector>
 

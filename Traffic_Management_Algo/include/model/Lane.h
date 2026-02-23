@@ -3,10 +3,10 @@
 /// Each lane has a direction (approach index), movement type, queue length,
 /// starvation counter, BLE boost, and priority state.
 
-#include "Direction.hpp"
-#include "MovementType.hpp"
-#include "PriorityReason.hpp"
-#include "Point.hpp"
+#include "Direction.h"
+#include "MovementType.h"
+#include "PriorityReason.h"
+#include "Point.h"
 
 #include <cstdint>
 #include <string>

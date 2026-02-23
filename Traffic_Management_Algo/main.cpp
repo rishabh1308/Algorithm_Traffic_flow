@@ -7,17 +7,17 @@
 ///   5. Multi-intersection corridor coordination
 ///   6. RL parameter tuning
 
-#include "model/Direction.hpp"
-#include "model/MovementType.hpp"
-#include "model/Lane.hpp"
-#include "model/PriorityReason.hpp"
-#include "engine/EngineConfig.hpp"
-#include "engine/TrafficEngine.hpp"
-#include "ble/BLEEvent.hpp"
-#include "ble/BLERegistry.hpp"
-#include "ble/BLEPriorityManager.hpp"
-#include "coordination/CorridorCoordinator.hpp"
-#include "rl/RLAgent.hpp"
+#include "model/Direction.h"
+#include "model/MovementType.h"
+#include "model/Lane.h"
+#include "model/PriorityReason.h"
+#include "engine/EngineConfig.h"
+#include "engine/TrafficEngine.h"
+#include "ble/BLEEvent.h"
+#include "ble/BLERegistry.h"
+#include "ble/BLEPriorityManager.h"
+#include "coordination/CorridorCoordinator.h"
+#include "rl/RLAgent.h"
 
 #include <iostream>
 #include <iomanip>
@@ -34,8 +34,27 @@ static std::vector<model::Lane> createNWayIntersection(uint16_t numApproaches) {
 
     for (uint16_t a = 0; a < numApproaches; ++a) {
         model::Direction dir(a, numApproaches);
-        lanes.push_back({id++, dir, model::MovementType::THROUGH,        0, 0, 0.0, model::PriorityReason::NONE});
-        lanes.push_back({id++, dir, model::MovementType::LEFT_PROTECTED, 0, 0, 0.0, model::PriorityReason::NONE});
+        lanes.push_back({
+   	 id++,
+    	dir,
+    	model::MovementType::THROUGH,
+	    {},                     // ← path (empty vector<Point>)
+	    0,                      // queueLength
+	    0,                      // waitCounter
+	    0.0,                    // bleBoost
+	    model::PriorityReason::NONE
+	});
+
+	lanes.push_back({
+	    id++,
+	    dir,
+	    model::MovementType::LEFT_PROTECTED,
+	    {},                     // ← path
+	    0,
+	    0,
+	    0.0,
+	    model::PriorityReason::NONE
+	});
     }
 
     return lanes;

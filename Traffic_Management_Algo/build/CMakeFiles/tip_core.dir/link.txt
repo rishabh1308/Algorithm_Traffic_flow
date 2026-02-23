@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtip_core.a CMakeFiles/tip_core.dir/src/ble/BLEPriorityManager.cpp.o CMakeFiles/tip_core.dir/src/engine/PhaseBuilder.cpp.o CMakeFiles/tip_core.dir/src/engine/TrafficEngine.cpp.o CMakeFiles/tip_core.dir/src/model/ConflictMatrix.cpp.o CMakeFiles/tip_core.dir/src/coordination/CorridorCoordinator.cpp.o CMakeFiles/tip_core.dir/src/rl/RLAgent.cpp.o
+/usr/bin/ranlib libtip_core.a

@@ -1,5 +1,5 @@
 
-#include "model/ConflictMatrix.hpp"
+#include "model/ConflictMatrix.h"
 
 namespace tip::model {
 

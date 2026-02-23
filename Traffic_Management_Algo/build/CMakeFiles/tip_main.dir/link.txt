@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/tip_main.dir/link.d CMakeFiles/tip_main.dir/main.cpp.o -o tip_main  libtip_core.a

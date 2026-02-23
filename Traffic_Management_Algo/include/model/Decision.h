@@ -1,7 +1,7 @@
 #pragma once
-#include "Phase.hpp"
-#include "SignalPhase.hpp"
-#include "PriorityReason.hpp"
+#include "Phase.h"
+#include "SignalPhase.h"
+#include "PriorityReason.h"
 
 #include <string>
 #include <cstdint>

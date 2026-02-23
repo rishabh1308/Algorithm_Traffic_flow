@@ -6,13 +6,13 @@
 ///   - Green duration computation (proportional, bounded)
 ///   - Starvation fairness updates
 
-#include "EngineConfig.hpp"
-#include "PhaseBuilder.hpp"
-#include "../model/Lane.hpp"
-#include "../model/Phase.hpp"
-#include "../model/ConflictMatrix.hpp"
-#include "../model/Decision.hpp"
-#include "../ble/BLEPriorityManager.hpp"
+#include "EngineConfig.h"
+#include "PhaseBuilder.h"
+#include "../model/Lane.h"
+#include "../model/Phase.h"
+#include "../model/ConflictMatrix.h"
+#include "../model/Decision.h"
+#include "../ble/BLEPriorityManager.h"
 
 #include <vector>
 #include <optional>
